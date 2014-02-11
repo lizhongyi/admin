@@ -1,0 +1,104 @@
+<include file="Public:header"/>                    
+
+<div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+          <div class="secondary-navigation">
+            <ul class="wat-cf">
+              <li class="first"><a href="/Works">全部工作单</a></li>
+              <li class='active'><a href="#">工作单详细</a></li>
+             
+            </ul>
+          </div>
+          <div class="content">
+          
+           <div class="inner" style="padding:25px;">
+          
+       
+            <div class="cl"></div>
+            </div>
+            
+            
+            
+            <div class="inner">
+              <div class="m15">
+              
+              
+              
+              
+              
+              
+              
+              
+              <table class=" table table-bordered  tb-auto" >
+              <tr>
+              <th colspan="6">{$detail['Search_posts']}　（<span style="color:#333;">{$detail['hr_num']}</span>人)　WO-{$detail['id']}</th>
+              </tr>
+              <tr>
+              <td width="107"><strong>客户名称</strong></td>
+              <td width="150">{$detail['cid']|get_clientname}</td>
+              <td width="150"><strong>HR联系人　</strong></td>
+              <td width="150">{$detail['hr_contact']}</td>
+              <td width="150"><strong>工作地点</strong></td>
+              <td width="150">{$detail['area_cn']}</td>
+              </tr>
+              <tr>
+                <td><strong>薪酬待遇</strong></td>
+                <td>{$detail['payment']}~{$detail['payment1']}万元</td>
+                <td><strong>执行部门</strong></td>
+                <td>{$bm[$detail['department_id']]}</td>
+                <td><strong>负责人　</strong></td>
+                <td>{$detail['principal_cn']}</td>
+              </tr>
+              <tr>
+                <td><strong>进展阶段　</strong></td>
+                <td>{$select['stage1'][$detail['stage']]}</td>
+                <td><strong>起止日期</strong></td>
+                <td colspan="3">　{$detail['start_time']|date='Y-m-d',###}　至　{$detail['end_time']|date='Y-m-d',###}</td>
+                </tr>
+              <tr>
+                <td><strong>状态</strong></td>
+                <td>{$select['status'][$detail['status']]}</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              
+              </table>
+              
+              
+              
+              <div class="cl"></div>
+              
+              <table class=" table table-bordered  tb-auto">
+              <tr>
+              <th>职位描述</th>
+              </tr>
+              <tr>
+              <td>{$detail['job_descriptions']}</td>
+              </tr>
+              <tr><th>任职要求</th></tr>
+               <tr><td>{$detail['job_requirements']}</td></tr>
+               <tr><th>备注</th></tr>
+               <tr><td>{$detail['remark']}</td></tr>
+              </table>
+         
+         
+          <hr/>
+          <div class="">
+         <span class="left"> 创建日期：{$detail['create_time']|date='Y-m-d',###} 　　 更新日期：<if condition=" $detail['update_time'] neq '0'">{$detail['update_time']|date='Y-m-d',###}</if></span>
+         <span class="right">创建人：{$uname}</span>
+        
+          </div>
+      </div>
+            </div>
+          </div>
+            
+        </div>
+   <include file='Public:footer' />
+  </div>
+  
+  
+  <include file='Public:sidebar' />
+  </div>

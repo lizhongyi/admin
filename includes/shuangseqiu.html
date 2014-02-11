@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<title>Test.jsp</title>
+	</head>
+	<script language="javascript" type="text/javascript">
+num();
+function num() {
+	var bluenum = Math.floor(Math.random() * 1000000000000) % 16 + 1;
+	var rednum = new Array();
+	for (i = 0; i < 6; i++) {
+		rednum[i] = Math.floor(Math.random() * 1000000000000) % 33 + 1;
+		c = rednum[i];
+		for (j = 0; j < i; j++) {
+			if (rednum[j] == c) {
+				i--;
+				j = 7;
+			}
+		}
+	}
+	for (i = 0; i < 6; i++) {
+		for (j = i; j < 6; j++) {
+			if (rednum[i] > rednum[j]) {
+				temp = rednum[i];
+				rednum[i] = rednum[j];
+				rednum[j] = temp;
+			}
+		}
+	}
+	document.write("ºìºÅ£º");
+	for (i = 0; i < 6; i++) {
+		document.write(rednum[i]);
+		document.write("&nbsp" + ",");
+	}
+	document.write("À¶ºÅ£º" + bluenum + "</br>");
+}
+</script>
+	<body>
+	</body>
+</html>

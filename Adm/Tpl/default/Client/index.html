@@ -1,0 +1,76 @@
+<include file="Public:header"/>                    
+
+<div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+          <div class="secondary-navigation">
+            <ul class="wat-cf">
+            
+              <li><a href="/User/company">企业列表</a></li>
+             
+            </ul>
+          </div>
+          <div class="content">
+          
+           <div class="inner" style="padding:25px;">
+          
+            <form>
+            
+            <input placeholder="关键字" type="text" name="keyword" id="keyword" class="text_field key span3 ft" value="{$_GET['keyword']}"/>  <button class="button ft"  type="submit">
+                    <img src="/Public/images/icons/tick.png" alt="Save" /> 搜索
+                  </button>
+            
+            </form>
+            <div class="cl"></div>
+            </div>
+            
+            
+            
+            <div class="inner">
+              <form action="#" class="form">
+                <table class="table">
+                  <tbody><tr>
+                    <th width="20" height="23" class="first"><input type="checkbox" class="checkbox toggle"></th>
+                    <th width="72">序号</th>
+                    <th width="232">企业名称</th>
+                    <th width="139">所在地区</th>
+                    <th width="238">创建时间</th>
+                    <th width="99" class="last">操作</th>
+                  </tr>
+                  
+                   <volist name="getList" id="vo">
+                  
+                  
+                  <tr class="odd">
+                    <td><input type="checkbox" class="checkbox" name="id" value="1"></td><td>{$key+1}</td>
+                    <td>{$vo['companyname']}</td>
+                    <td>{$vo['area_cn']}</td>
+                    <td>{$vo['create_time']|date='Y-m-d',###}</td>
+                    <td class="last"> <a href="/Client/detail/id/{$vo.id}">查看</a> </td>
+                  </tr>
+                  </volist>
+                 
+                </tbody></table>
+                <div class="actions-bar wat-cf">
+                  <div class="actions">
+                    <button class="button" type="submit">
+                      <img src="/Public/images/icons/cross.png" alt="Delete"> Delete
+                    </button>
+                  </div>
+                  <div class="pagination">
+                   {$pageBar}
+                  </div>
+                  
+               
+                </div>
+              </form>
+            </div>
+          </div>
+            
+        </div>
+   <include file='Public:footer' />
+  </div>
+  
+  
+  <include file='Public:sidebar' />
+  </div>

@@ -1,0 +1,207 @@
+<include file="Public:header" />
+      
+        <!-- section content -->
+       
+<div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+      <div class="secondary-navigation">
+            <ul class="wat-cf">
+             <li class="active"><a  href="/User/profile_edit">基本资料</a></li>
+                                        <li><a  href="/User/profile_company/uid/{$pr['uid']}">企业信息</a></li>     
+            </ul>
+        </div>
+          <div class="block" id="block-forms">
+        
+          <div class="content">
+           
+            <div class="inner" style="padding:25px;">
+              
+              
+              
+              
+              
+              <form method="post"  action="{:U('User/do_profile',array('uid'=>$pr['uid']))}" class="form">
+                                                    
+                                                
+                                                    
+                              <div class="group">
+                                                            <label class="label" for="inputAuto">用户名</label>
+                                                            <div class="controls">
+                                                            <input id="uname" name="uname" class="text_field span3"  type="text" class="" value="{$pr['username']}" disabled />
+                                 </div>
+              </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                      <div class="group">
+                                                            <label class="label" for="inputAuto">真实姓名</label>
+                                                            <div class="controls">
+                                                            <input name="realname"  type="text" class="text_field span3"  value="{$pr['realname']}"  />
+                                                            </div>
+        </div>
+                                                        
+                                                        
+                                                    <div class="group">
+                                                            <label class="label">性别</label>
+                                                            <div class="controls">
+                                                                <label class="radio">
+                                                                    <input type="radio" data-form="uniform" name="sex" id="optionsRadios1" value="1" <if condition="$pr['sex'] eq 1"> checked </if> />
+                                                                   男
+                                                                </label>
+                                                              
+                                                              <label class="radio" style="padding-top:6px;">
+                                                                    <input type="radio" data-form="uniform"  name="sex" id="optionsRadios2"  <if condition="$pr['sex'] eq 2"> checked </if>  value="2" />
+                                                                   女
+                                                              </label>
+                                                            </div>
+                               </div>
+                                                        
+                                                        
+                                                        
+                                                         <div class="group">
+                                                            <label class="label">婚姻状况</label>
+                                                            <div class="controls">
+                                                                <label class="radio">
+                                                                    <input type="radio" data-form="uniform" name="marriage" id="optionsRadios1" value="1"  <if condition="$pr['marriage'] eq 1"> checked </if> />
+                                                                   未婚
+                                                                </label>
+                                                              
+                                                                <label class="radio" style="padding-top:6px;">
+                                                                    <input type="radio" data-form="uniform" name="marriage" id="optionsRadios2"  <if condition="$pr['marriage'] eq 2"> checked </if> value="2" />
+                                                                   已婚
+                                                                </label>
+                                                                
+                                                               
+                                                              
+                                                                <label class="radio" style="padding-top:6px;">
+                                                                    <input type="radio" data-form="uniform" name="marriage" id="optionsRadios3"  <if condition="$pr['marriage'] eq 3"> checked </if> value="3" />
+                                                                   保密
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                   
+                                                     <div class="group">
+                                                            <label class="label" for="inputAuto">年龄</label>
+                                                            <div class="controls">
+                                                            <input id="age" name="age"  type="text" class="text_field span2"  value="{$pr['age']}"  />
+                                                            </div>
+                               </div>
+                                                        
+                                                        
+                                                        
+                                                            <div class="group">
+                                                            <label class="label" for="inputAuto">Email</label>
+                                                            <div class="controls">
+                                                            <input id="email" name="email"  type="text" class="text_field span3"  value="{$pr['email']}"  disabled />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                             
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">手机</label>
+                                                            <div class="controls">
+                                                            <input id="uname" name="phone"  type="text" class="text_field span3"  value="{$pr['phone']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                             
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">电话</label>
+                                                            <div class="controls">
+                                                            <input id="uname" name="tel"  type="text"  class="text_field span3" value="{$pr['tel']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                                  
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">通讯地址</label>
+                                                            <div class="controls">
+                                                            <input id="addr" name="addr"  type="text"  class="text_field span3" value="{$pr['addr']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                          <div class="group">
+                                                            <label class="label" for="inputAuto">最近工作单</label>
+                                                            <div class="controls">
+                                                            <input id="last_company" name="last_company"  type="text"  class="text_field span3" value="{$pr['last_company']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                      
+                               
+                                                        <div class="group">
+                                                            <label class="label" for="inputSelect">学历</label>
+                                                            <div class="controls">
+                                                                <select id="inputSelect" name="education" data-form="select2" style="width:200px" data-placeholder="Your Favorite Type of Bear">
+                                                                    <option  <if condition="$pr['education'] eq 1"> selected="" </if> value="1" />大专
+                                                                    <option <if condition="$pr['education'] eq 2"> selected="" </if> value="2" />本科
+                                                                    <option value="3" <if condition="$pr['education'] eq 3"> selected="" </if> />硕士
+                                                                    <option <if condition="$pr['education'] eq 4"> selected="" </if> value="4" />博士
+                                                                    <option <if condition="$pr['education'] eq 5"> selected="" </if>  value="5" />博士后                                                                 
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                           <div class="group">
+                                                            <label class="label" for="inputSelectGroup">所在地区</label>
+                                                            <div class="controls">
+                                                             <input  class="text_field area span3" size="16" type="text" value="{$pr['area_cn']}" name="area_cn"><input type="hidden" name="area" value="{$Think.get.area}" id="area-val"/>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                      
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                      
+                                                         <div class="group">
+                                                          <label class="label" for="inputEditorSimple">个人介绍</label>
+                                                            <div class="controls">
+                                                                <textarea id="inputEditorSimple"  class="text_area" rows="8" name="about" data-form="wysihtml5" placeholder="Enter text ...">{$pr['about']}</textarea>
+                                                                <input type="hidden" value="{$pr['step']}" name="step"/>
+                                                            </div>
+                               </div>
+        <div class="group navform wat-cf">
+                  <button class="button" type="submit">
+                  <img src="/Public/images/icons/tick.png" alt="Save" /> Save
+                  </button>
+                  <span class="text_button_padding">or</span>
+                  <a class="text_button_padding link_button" href="#header">Cancel</a>
+                </div>
+                </div>
+        </div>
+    </div>
+  
+  </div>
+  </div>
+  
+  <include file='Public:sidebar' />
+  </div>
+
+
+<include file="Public:ft" />

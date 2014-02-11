@@ -1,0 +1,297 @@
+<include file="Public:header" />
+       <div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+      <div class="secondary-navigation">
+            <ul class="wat-cf">
+             <li><a  href="/User/detail/uid/{$_GET['uid']}">基本资料</a></li>
+                                        <li class="active"><a  href="/User/profile_company/uid/{$pr['uid']}">企业信息</a></li>     
+            </ul>
+          </div>
+          
+          <present name="pr">
+          
+          
+          
+          
+          
+          <div class="block" id="block-forms">
+        
+          <div class="content">
+         
+          
+            
+            <div class="inner" style="padding:25px;">
+            
+            
+            
+          <div class="p" style="position:absolute; right:40px; border:1px solid #ddd; background:#F6F6F6;padding:20px;">
+          
+          
+          
+          
+                                <form name="" class="form" id="" action="/User/examine">
+                                    <div class="group">
+                                                            <label class="label" for="inputAuto">审核</label>
+                                                            <div class="controls">
+                                                            <input id="euid" name="euid" value="{$pr['uid']}" type="hidden"/>
+                                                            
+                                                            <select class="" id="examine" name="examine">{$pr['examine']}
+                                                              <option value="0" <if condition="$pr['examine'] eq 0"> selected </if>>审核中</option>                                    
+                                                              <option value="1" <if condition="$pr['examine'] eq 1"> selected </if>>通过</option>                                                             <option value="2" <if condition="$pr['examine'] eq 2"> selected </if>>未通过</option>
+                                                            </select>
+                                                           
+                                                            </div>
+                                                             <div class="controls ex"  <if condition="$pr['exmine'] eq 2"> style="display:block" <else/>  style="display:none" </if>>
+                                                            <label class="label" for="inputAuto">拒绝理由</label>
+                                                            
+                                                           
+                                                            
+                                                            <textarea id="examine_info" id="examine_info"></textarea>
+                                                           
+                                                            
+                                                            </div>
+                                                            
+                                                            <div class="controls">
+                                                             <input  class="btn" type="button" id="ex_btn" value="提交"/>
+                                                           </div>
+                                
+                                </div>
+                                </form>
+                                </div>
+                                                    <!--element-->
+                                                    <form method="post"  action="{:U('User/do_company')}" class="form" enctype="multipart/form-data" name="cp" id="cp" />
+                                                    
+                                                    <div class="group"></div>
+                                                    
+                               
+                                                        
+                                                        
+                                                        
+                                                        
+                               <div class="group">
+                                                            <label class="label" for="inputAuto">企业名称</label>
+                                                            <div class="controls">
+                                                            <input id="uname" name="companyname" class="text_field span3"   type="text" class="" value="{$pr['companyname']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                      
+                                                        
+                                                        
+                                                        
+                               <div class="group">
+                                                            <label class="label" for="inputSelect">企业性质</label>
+                                                            <div class="controls">
+                                                              <select  id="xingzhi" name="nature"  class="span3">
+              {:get_select($select['nature'])}
+              </select>
+                                                            </div>
+                               </div>         
+                                                        
+                                                   
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           <div class="group">
+                                                            <label class="label" for="inputSelect">企业性质</label>
+                                                            <div class="controls">
+                                                              
+                                           <select id="scale" name="scale" class="span3">
+			 {:get_select($select['scale'])}</select>     
+                                                       
+                                                            </div>
+                               </div> 
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                           
+                                          
+                               <div class="group">
+                                                            <label class="label" for="inputSelectGroup">所在地区</label>
+                                                            <div class="controls">
+                                                             <input class="area span4 text_field"   size="16" type="text" value="{$pr['area_cn']}" name="area_cn"><input type="hidden" name="area" value="{$Think.get.area}" id="area-val"/>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                            <div class="group">
+                                                            <label class="label" for="inputSelectGroup">所属行业</label>
+                                                            <div class="controls">
+                                                           <input class="span4 industry text_field" size="16" type="text" value="{$pr['trade_cn']}" autocomplete="off"  name="trade_cn" id="industry_input" /><input type="hidden" name="trade" value="{$pr['trade']}"   id="industry-val"/>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        
+                   
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                             
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">注册资金</label>
+                                                            <div class="controls">
+                                                            <input id="registered" name="registered"  type="text" class="text_field span2 " value="{$pr['registered']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                   
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">联系人</label>
+                                                            <div class="controls">
+                                                            <input id="linkman
+" name="linkman"  type="text" class="text_field span3 " value="{$pr['linkman']}"  />
+                                                            </div>
+                                                        </div>                                               
+                                                        
+                                                             
+                               <div class="group">
+                                                            <label class="label" for="inputAuto">联系电话</label>
+                                                            <div class="controls">
+                                                            <input id="uname" name="tel"  type="text" class="text_field span3" value="{$pr['tel']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                                  
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">通讯地址</label>
+                                                            <div class="controls">
+                                                            <input id="addr" name="addr"  type="text" class="text_field span7" value="{$pr['addr']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="group">
+                                                            <label class="label" for="inputAuto">公司网站</label>
+                                                            <div class="controls">
+                                                            <input id="website" name="website"  type="text" class="text_field span7" value="{$pr['website']}"  />
+                                                            </div>
+                                                        </div>
+                                                        
+                                                          <div class="group">
+                                                            <label class="label" for="inputUpload">营业执照</label>
+                                                            <div class="controls">
+                                                                <input type="file"  id="attach_file" name="attach_file" /> <a href="http://adm.jobme.cn/Uploads/{$pr['license']}">查看营业执照</a>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    
+                                                 
+                                                        
+                                            
+                                                        
+                                                        
+                                                        
+                                                        
+                                                      
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                      
+                                                        <div class="group">
+                                                          <label class="label" for="inputEditorSimple">企业简介</label>
+                                                            <div class="controls">
+                                                                <textarea id="inputEditorSimple" class="span10 text_area" rows="8" name="about" data-form="wysihtml5" placeholder="Enter text ...">{$pr['about']}</textarea>
+                                                                <input type="hidden" value="{$pr['step']}" name="step"/>
+                                                            </div>
+                               </div>
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               <div class="form-actions">
+                                                            <button type="submit" class="btn btn-primary">保存资料</button>
+                                                            <button type="button" class="btn">取消</button>
+                                                        </div>
+                                                    </form>
+                                                    
+                                                    
+                                                    
+                                                    </div>
+                                               
+                                               
+         
+          
+          <else/>
+          
+          <div class="nodata">
+          
+          该用户没有填写企业信息
+          
+          </div>
+          
+          </present>
+          
+           </div>
+      </div>
+    </div>
+   <include file='Public:footer' />
+  </div>
+  
+  
+  <include file='Public:sidebar' />
+  </div>
+
+<script>
+
+  $("#ex_btn").click(function(e) {
+						   
+						   $this=$(this);
+						  
+						  $.ajax({
+							   
+							   url:'/User/examine',
+							   type:"POST",
+							   data:{examine:$("#examine").val(),uid:$("#euid").val(),examine_info:$("#examine_info").val()},
+							   beforeSend: function(){
+								    $this.attr('disabled',true);
+									 $this.val('提交中...');
+								   }
+								   ,success: function(data){
+									   
+									   $this.val(data.info);
+									   $this.attr('disabled',false);
+									   
+									   }
+							  
+							  });
+						  
+            
+                    });
+		
+		
+		
+		
+                
+            
+                
+           
+</script>

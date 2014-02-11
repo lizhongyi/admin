@@ -1,0 +1,68 @@
+<include file="Public:header"/>                    
+
+<div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+          <div class="secondary-navigation">
+            <ul class="wat-cf">
+              <li class="first"><a href="/User">全部用户</a></li>
+              <li  class="active"><a href="/User/company">企业账户</a></li>
+             
+            </ul>
+          </div>
+          <div class="content">
+            <h2 class="title">Tables</h2>
+            <div class="inner">
+              <form action="#" class="form">
+                <table class="table">
+                  <tbody><tr>
+                    <th width="20" height="23" class="first"><input type="checkbox" class="checkbox toggle"></th>
+                    <th width="72">ID</th>
+                    <th width="111">用户名</th>
+                    <th width="164">E-mail</th>
+                    <th width="179">公司名称</th>
+                    <th width="179">用户状态</th>
+                    <th width="149">注册时间</th>
+                    <th width="118" class="last">操作</th>
+                  </tr>
+                  
+                   <volist name="list" id="vo">
+                  
+                  
+                  <tr class="odd">
+                    <td><input type="checkbox" class="checkbox" name="id" value="1"></td><td>{$vo['uid']}</td><td>{$vo['username']}</td><td>{$vo['email']}</td>
+                    <td>{$vo['com']}</td>
+                    <td> <if condition="$vo.step lt 2">
+                      <span style="color:#F00">未激活</span>
+                      <else/>
+                      <span style="color: #009900">已激活</span>
+                    </if></td>
+                    <td>{$vo['create_time']|date='Y-m-d',###}</td>
+                    <td class="last"><a href="/User/profile_company/uid/{$vo['uid']}">查看</a>  | <a href="#">删除</a></td>
+                  </tr>
+                  </volist>
+                 
+                </tbody></table>
+                <div class="actions-bar wat-cf">
+                  <div class="actions">
+                    <button class="button" type="submit">
+                      <img src="/Public/images/icons/cross.png" alt="Delete"> Delete
+                    </button>
+                  </div>
+                  <div class="pagination">
+                   {$pageBar}
+                  </div>
+                  
+               
+                </div>
+              </form>
+            </div>
+          </div>
+             {$pagebar}
+        </div>
+   <include file='Public:footer' />
+  </div>
+  
+  
+  <include file='Public:sidebar' />
+  </div>

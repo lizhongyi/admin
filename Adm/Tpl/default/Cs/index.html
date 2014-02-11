@@ -1,0 +1,105 @@
+<include file="Public:header"/>                    
+
+<div id="wrapper" class="wat-cf">
+  <div id="main">
+   <div class="block" id="block-tables">
+          <div class="secondary-navigation">
+            <ul class="wat-cf">
+              <li class="first active"><a href="/User">收款查询</a></li>
+             
+            </ul>
+          </div>
+          <div class="content">
+          
+           <div class="inner" style="padding:25px;">
+          
+            <form>
+            
+            <input placeholder="关键字" type="text" name="keyword" id="keyword" class="text_field key span3 ft" value="{$_GET['keyword']}"/>  <button class="button ft"  type="submit">
+                    <img src="/Public/images/icons/tick.png" alt="Save" /> 搜索
+                  </button>
+            
+            </form>
+            <div class="cl"></div>
+            </div>
+            
+            
+            
+            <div class="inner">
+              <form action="#" class="form">
+              <table class="table table_list">
+                        <tr>
+                          <th width="70">序号</th>
+                          <th width="90">姓名</th>
+                          <th width="124">客户</th>
+                          <th width="124">寻访职位</th>
+                          <th width="124">收款类型</th>
+                          <th width="109">应收款金额</th>
+                          <th width="124">应收日期</th>
+                          <th width="120" align="center">到账状态</th>
+                          <th width="80" align="center">备注</th>
+                        </tr>
+                        <volist name="getList" id="vo">
+                          <tr>
+                            <td>
+                              {$vo['id']}</td>
+                            <td><a href="/Works/detail/id/{$vo['gid']}#收款状态" >{$vo['resume_id']|get_resume_name}</a></td>
+                            <td>{$vo['client_name']}</td>
+                            <td > {:get_job($vo['gid'])}
+                            
+                            </td>
+                            <td id="stages_{$vo['id']}"><if condition="$vo['c_type'] eq 2"> 
+                                <script>get_sinfo("stages_{$vo['id']}",selecter.stages[8],"{$vo['c_type']}","（{$vo['pici']}-{$vo['zongpi']}）")</script>
+                                <else/>
+                                <script>get_sinfo("stages_{$vo['id']}",selecter.stages[8],"{$vo['c_type']}")</script> 
+                              </if></td>
+                            <td><span 
+                              <if condition="$vo['c_status'] eq 0">class="red jine"</if>
+                              class="jine">￥{$vo['yfk_jine']}</span>　 </td>
+                            <td>{$vo['yfk_time']|date='Y-m-d',###}</td>
+                            <td><if condition="$vo['c_status'] eq 1"><span style="color:#0C0">已到账
+                                <if condition="$vo['fen'] eq 1">　<a  class="yeji_detail" data-toggle="modal" href="#yeji_detail" link="{:U('Commission/cid_list',array('cid'=>$vo['cid'],'did'=>$vo['id'],'ajax'=>1))}">已分配</a></if>
+                                </span>
+                                <else/>
+                                <span style=" color:#999">未到账</span></if></td>
+                            <td align="center"><a href="#" class="beizhu" title="" data-content="{$vo['mark']}" data-original-title="备注">查看</a></td>
+                          </tr>
+                        </volist>
+                        <tr>
+                          <td colspan="9">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                          <th id="stages_{$vo['id']}2">&nbsp;</th>
+                          <th id="stages_{$vo['id']}2">&nbsp;</th>
+                          <th id="stages_{$vo['id']}2">合计</th>
+                          <th><span>￥{$zongjine}</span></th>
+                          <th>&nbsp;</th>
+                          <th>&nbsp;</th>
+                        </tr>
+                      </table>
+                <div class="actions-bar wat-cf">
+                  <div class="actions">
+                    <button class="button" type="submit">
+                      <img src="/Public/images/icons/cross.png" alt="Delete"> Delete
+                    </button>
+                  </div>
+                  <div class="pagination">
+                   {$pageBar}
+                  </div>
+                  
+               
+                </div>
+              </form>
+            </div>
+          </div>
+            
+        </div>
+   <include file='Public:footer' />
+  </div>
+  
+  
+  <include file='Public:sidebar' />
+  </div>
